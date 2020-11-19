@@ -1,0 +1,4 @@
+== Suppressed Messages ==
+
+# The CapabilityStatements use the capabilitystatement-search-parameter-combination extension to specify required search parameters. Population matches that in US Core, but receiving a "no known slice" warning
+This element does not match any known slice defined in the profile http://hl7.org/fhir/StructureDefinition/capabilitystatement-search-parameter-combination

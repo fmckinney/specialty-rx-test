@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImplementationGuide
+    xmlns="http://hl7.org/fhir">
+    <id value="specialty-rx"/>
+    <meta>
+        <lastUpdated value="2020-10-05T00:00:00.000+00:00"/>
+    </meta>
+    <text>
+        <status value="additional"/>
+        <div
+            xmlns="http://www.w3.org/1999/xhtml">
+            <div>This implementation guide describes the exchange of information needed to dispense specialty medications and enroll patients in associated programs offered by pharmaceutical manufacturers and others.</div>
+        </div>
+    </text>
+    <url value="http://hl7.org/fhir/us/specialty-rx/ImplementationGuide/specialty-rx"/>
+ 	<version value="0.1.00"/> 
+    <!-- <version value="current"/> -->
+    <name value="SpecialtyRx"/>
+    <title value="Specialty Medication Prescribing"/>
+    <status value="draft"/>
+    <publisher value="NCPDP"/>
+    <contact>
+        <name value="HL7 International - Pharmacy"/>
+        <telecom>
+            <system value="url"/>
+            <value value="http://www.hl7.org/Special/committees/medication"/>
+        </telecom>
+    </contact>
+    <contact>
+      <name value="Frank McKinney" />
+      <telecom>
+        <system value="email" />
+        <value value="frank.mckinney@pocp.com" />
+      </telecom>
+    </contact>
+    <description value="This implementation guide describes the exchange of information needed to dispense specialty medications and enroll patients in associated programs offered by pharmaceutical manufacturers and others." />
+    <jurisdiction>
+      <coding>
+        <system value="urn:iso:std:iso:3166" />
+        <code value="US" />
+        <display value="United States of America" />
+      </coding>
+    </jurisdiction>
+    <packageId value="hl7.fhir.us.specialty-rx"/>
+    <fhirVersion value="4.0.1"/>
+    <dependsOn>
+        <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
+        <packageId value="hl7.fhir.us.core"/>
+        <version value="3.1.0"/>
+    </dependsOn>
+	 <definition>
+	<!-- Request and response bundle  -->
+	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-bundle-error"/>
+	      <display value="Specialty Rx Bundle - Error Message"/>
+	    </reference>
+	    <name value="Specialty Rx Bundle - Error Message"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	
+   	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-bundle-query"/>
+	      <display value="Specialty Rx Bundle - Query Message"/>
+	    </reference>
+	    <name value="Specialty Rx Bundle - Query Message"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	
+	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-bundle-query-response"/>
+	      <display value="Specialty Rx Bundle - Query Response Message"/>
+	    </reference>
+	    <name value="Specialty Rx Bundle - Query Response Message"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	
+	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-bundle-query-response-unsolicited"/>
+	      <display value="Specialty Rx Bundle - Query Response - Unsolicited Message"/>
+	    </reference>
+	    <name value="Specialty Rx Bundle - Query Response - Unsolicited Message"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	
+<!--
+   	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-bundle-questionnaire"/>
+	      <display value="Specialty Rx Bundle - Questionnaire Message"/>
+	    </reference>
+	    <name value="Specialty Rx Bundle - Questionnaire Message"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	
+	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-bundle-questionnaire-response"/>
+	      <display value="Specialty Rx Bundle - Questionnaire Response Message"/>
+	    </reference>
+	    <name value="Specialty Rx Bundle - Questionnaire Response Message"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	
+-->
+   	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-bundle-search-result"/>
+	      <display value="Specialty Rx Bundle - Search Result"/>
+	    </reference>
+	    <name value="Specialty Rx Bundle - Search Result"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	
+  	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-condition"/>
+	      <display value="Specialty Rx Condition"/>
+	    </reference>
+	    <name value="Specialty Rx Condition"/>
+	    <exampleBoolean value="false"/>
+	  </resource>
+  	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-coverage"/>
+	      <display value="Specialty Rx Coverage"/>
+	    </reference>
+	    <name value="Specialty Rx Coverage"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	
+  	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-endpoint-direct"/>
+	      <display value="Specialty Rx Endpoint - Direct"/>
+	    </reference>
+	    <name value="Specialty Rx Endpoint - Direct"/>
+	    <exampleBoolean value="false"/>
+	  </resource>
+  	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-medicationrequest"/>
+	      <display value="Specialty Rx Medication Request"/>
+	    </reference>
+	    <name value="Specialty Rx Medication Request"/>
+	    <exampleBoolean value="false"/>
+	  </resource>
+	  		<!-- MessageDefinition  -->
+  	  <resource>
+	    <reference>
+	      <reference value="MessageDefinition/specialty-rx-error"/>
+	      <display value="Specialty Rx MessageDefinition - Error"/>
+	    </reference>
+	    <name value="Specialty Rx MessageDefinition - Error"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+  	  <resource>
+	    <reference>
+	      <reference value="MessageDefinition/specialty-rx-query"/>
+	      <display value="Specialty Rx MessageDefinition - Query"/>
+	    </reference>
+	    <name value="Specialty Rx MessageDefinition - Query"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+  	  <resource>
+	    <reference>
+	      <reference value="MessageDefinition/specialty-rx-query-response"/>
+	      <display value="Specialty Rx MessageDefinition - Query Response"/>
+	    </reference>
+	    <name value="Specialty Rx MessageDefinition - Query Response"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+	  <resource>
+	    <reference>
+	      <reference value="MessageDefinition/specialty-rx-query-response-unsolicited"/>
+	      <display value="Specialty Rx MessageDefinition - Query Response - Unsolicited"/>
+	    </reference>
+	    <name value="Specialty Rx MessageDefinition - Query Response - Unsolicited"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+<!--
+	  <resource>
+	    <reference>
+	      <reference value="MessageDefinition/specialty-rx-questionnaire"/>
+	      <display value="Specialty Rx MessageDefinition - Questionnaire"/>
+	    </reference>
+	    <name value="Specialty Rx MessageDefinition - Questionnaire"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+  	  <resource>
+	    <reference>
+	      <reference value="MessageDefinition/specialty-rx-questionnaire-response"/>
+	      <display value="Specialty Rx MessageDefinition - Questionnaire Response"/>
+	    </reference>
+	    <name value="Specialty Rx MessageDefinition - Questionnaire Response"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+-->
+
+	<!-- MessageHeader  -->
+	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-messageheader-query"/>
+	      <display value="Specialty Rx MessageHeader - Query"/>
+	    </reference>
+	    <name value="Specialty Rx MessageHeader - Query"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-messageheader-query-response"/>
+	      <display value="Specialty Rx MessageHeader - Query Response"/>
+	    </reference>
+	    <name value="Specialty Rx MessageHeader - Query Response"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-messageheader-error"/>
+	      <display value="Specialty Rx MessageHeader - Error"/>
+	    </reference>
+	    <name value="Specialty Rx MessageHeader - Error"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-messageheader-query-response-unsolicited"/>
+	      <display value="Specialty Rx MessageHeader - Query Response - Unsolicited"/>
+	    </reference>
+	    <name value="Specialty Rx MessageHeader - Query Response - Unsolicited"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	
+<!--
+	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-messageheader-questionnaire"/>
+	      <display value="Specialty Rx MessageHeader - Questionnaire"/>
+	    </reference>
+	    <name value="Specialty Rx MessageHeader - Questionnaire"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-messageheader-questionnaire-response"/>
+	      <display value="Specialty Rx MessageHeader - Questionnaire Response"/>
+	    </reference>
+	    <name value="Specialty Rx MessageHeader - Questionnaire Response"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+-->
+  	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-organization-payer"/>
+	      <display value="Specialty Rx Organization - Payer"/>
+	    </reference>
+	    <name value="Specialty Rx Organization - Payer"/>
+	    <exampleBoolean value="false"/>
+	  </resource>
+  	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-organization-pharmacy"/>
+	      <display value="Specialty Rx Organization - Pharmacy"/>
+	    </reference>
+	    <name value="Specialty Rx Organization - Pharmacy"/>
+	    <exampleBoolean value="false"/>
+	  </resource>
+  	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-organization-provider"/>
+	      <display value="Specialty Rx Organization - Provider"/>
+	    </reference>
+	    <name value="Specialty Rx Organization - Provider"/>
+	    <exampleBoolean value="false"/>
+	  </resource>
+   	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-parameters-query"/>
+	      <display value="Specialty Rx Parameters - Query"/>
+	    </reference>
+	    <name value="Specialty Rx Parameters - Query"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	
+   	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-parameters-query-response"/>
+	      <display value="Specialty Rx Parameters - Query Response"/>
+	    </reference>
+	    <name value="Specialty Rx Parameters - Query Response"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	
+<!--
+   	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-parameters-questionnaire"/>
+	      <display value="Specialty Rx Parameters - Questionnaire"/>
+	    </reference>
+	    <name value="Specialty Rx Parameters - Questionnaire"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	
+   	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-parameters-questionnaire-response"/>
+	      <display value="Specialty Rx Parameters - Questionnaire Response"/>
+	    </reference>
+	    <name value="Specialty Rx Parameters - Questionnaire Response"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	
+-->   	
+   	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-parameters-query-response-unsolicited"/>
+	      <display value="Specialty Rx Parameters - Query Response - Unsolicited"/>
+	    </reference>
+	    <name value="Specialty Rx Parameters - Query Response - Unsolicited"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	
+  	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-patient"/>
+	      <display value="Specialty Rx Patient"/>
+	    </reference>
+	    <name value="Specialty Rx Patient"/>
+	    <exampleBoolean value="false"/>
+	  </resource>
+  	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-practitioner"/>
+	      <display value="Specialty Rx Practitioner"/>
+	    </reference>
+	    <name value="Specialty Rx Practitioner"/>
+	    <exampleBoolean value="false"/>
+	  </resource>
+  	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-practitionerrole"/>
+	      <display value="Specialty Rx PractitionerRole"/>
+	    </reference>
+	    <name value="Specialty Rx PractitionerRole"/>
+	    <exampleBoolean value="false"/>
+	  </resource>
+  	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-relatedperson"/>
+	      <display value="Specialty Rx RelatedPerson"/>
+	    </reference>
+	    <name value="Specialty Rx RelatedPerson"/>
+	    <exampleBoolean value="false"/>
+	  </resource>
+  	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-task-smart-launch"/>
+	      <display value="Specialty Rx Task - SMART Launch"/>
+	    </reference>
+	    <name value="Specialty Rx Task - SMART Launch"/>
+	    <exampleBoolean value="false"/>
+	  </resource>
+	  	<!--
+  	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-consent"/>
+	      <display value="SpecialtyRxConsent"/>
+	    </reference>
+	    <name value="SpecialtyRxConsent"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+
+  	  <resource>
+	    <reference>
+	      <reference value="StructureDefinition/specialty-rx-signature-provenance"/>
+	      <display value="SpecialtyRxSignatureProvenance"/>
+	    </reference>
+	    <name value="SpecialtyRxSignatureProvenance"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+  	-->
+  	  <resource>
+	    <reference>
+	      <reference value="ValueSet/specialty-rx-condition-code"/>
+	      <display value="Specialty Rx ValueSet - Condition Code"/>
+	    </reference>
+	    <name value="Specialty Rx ValueSet - Condition Code"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+  	  <resource>
+	    <reference>
+	      <reference value="CodeSystem/specialty-rx-event-type"/>
+	      <display value="Specialty Rx CodeSystem - Event Type"/>
+	    </reference>
+	    <name value="Specialty Rx CodeSystem - Event Type"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+  	  <resource>
+	    <reference>
+	      <reference value="CodeSystem/specialty-rx-task-type"/>
+	      <display value="Specialty Rx CodeSystem - Task Type"/>
+	    </reference>
+	    <name value="Specialty Rx CodeSystem - Task Type"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+  	  <resource>
+	    <reference>
+	      <reference value="CodeSystem/specialty-rx-task-input-type"/>
+	      <display value="Specialty Rx CodeSystem - Task Input Type"/>
+	    </reference>
+	    <name value="Specialty Rx CodeSystem - Task Input Type"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+  	  <resource>
+	    <reference>
+	      <reference value="ValueSet/specialty-rx-event-type"/>
+	      <display value="Specialty Rx ValueSet - Event Type"/>
+	    </reference>
+	    <name value="Specialty Rx ValueSet - Event Type"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+  	  <resource>
+	    <reference>
+	      <reference value="ValueSet/specialty-rx-task-type"/>
+	      <display value="Specialty Rx ValueSet - Task Type"/>
+	    </reference>
+	    <name value="Specialty Rx ValueSet - Task Type"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+  	  <resource>
+	    <reference>
+	      <reference value="CapabilityStatement/specialty-rx-data-source"/>
+	      <display value="Specialty Rx CapabilityStatement - Data Source"/>
+	    </reference>
+	    <name value="Specialty Rx CapabilityStatement - Data Source"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+  	  <resource>
+	    <reference>
+	      <reference value="CapabilityStatement/specialty-rx-data-source-restful"/>
+	      <display value="Specialty Rx CapabilityStatement - Data Source - RESTful"/>
+	    </reference>
+	    <name value="Specialty Rx CapabilityStatement - Data Source - RESTful"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+  	  <resource>
+	    <reference>
+	      <reference value="CapabilityStatement/specialty-rx-data-recipient"/>
+	      <display value="Specialty Rx CapabilityStatement - Data Recipient"/>
+	    </reference>
+	    <name value="Specialty Rx CapabilityStatement - Data Recipient"/>
+	    <exampleBoolean value="false"/>
+	  </resource>	  
+	  
+	  
+  	  
+
+<!--  ******************************************************** Examples  ******************************************************* -->
+ 	  <resource>
+	      <reference>
+	        <reference value="AllergyIntolerance/specialty-rx-allergyintolerance-1"/>
+                <display value="US Core AllergyIntolerance - 1"/>
+            </reference>
+            <name value="US Core AllergyIntolerance - 1"/>
+            <description value="An example AllergyIntolerance illustrating content in the US Core profile"/>
+	      <!--    <exampleCanonical value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance"/>  -->
+      </resource>	  
+	  <resource>
+	      <reference>
+	        <reference value="CareTeam/specialty-rx-careteam-1"/>
+                <display value="US Core CareTeam 1"/>
+            </reference>
+            <name value="US Core CareTeam 1"/>
+            <description value="An example CareTeam illustrating content  in the US Core profile"/>
+	     <!-- <exampleCanonical value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam"/> -->
+      </resource>	  
+	  <resource>
+	      <reference>
+	        <reference value="Condition/specialty-rx-condition-1"/>
+                <display value="Specialty Rx Condition 1"/>
+            </reference>
+            <name value="Specialty Rx Condition 1"/>
+            <description value="An example Condition illustrating required elements in the Specialty Medication Prescribing profile"/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-condition"/>
+      </resource>	  
+		<resource>
+	      <reference>
+	        <reference value="Coverage/specialty-rx-coverage-1"/>
+                <display value="Specialty Rx Coverage 1"/>
+            </reference>
+            <name value="Specialty Rx Coverage 1"/>
+            <description value="Example of a Specialty Rx Coverage resource containing pharmacy benefit plan information."/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-coverage"/>
+      </resource>	  
+	<resource>
+	      <reference>
+	        <reference value="Endpoint/specialty-rx-endpoint-direct-1"/>
+                <display value="Specialty Rx Endpoint - Direct 1"/>
+            </reference>
+            <name value="Specialty Rx Endpoint - Direct 1"/>
+            <description value="An example Endpoint illustrating a practitioner's Direct Project address in the Specialty Medication Prescribing profile"/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-endpoint-direct"/>
+      </resource>	  
+	<resource>
+	      <reference>
+	        <reference value="Bundle/specialty-rx-error-1"/>
+                <display value="Specialty Rx Error 1"/>
+            </reference>
+            <name value="Specialty Rx Error 1"/>
+            <description value="Example data error message (temporary system error)."/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-bundle-error"/>
+      </resource>	  
+	<resource>
+	      <reference>
+	        <reference value="Location/specialty-rx-location-1"/>
+                <display value="US Core Location 1"/>
+            </reference>
+            <name value="US Core Location 1"/>
+            <description value="An example Location illustrating a particular office location using the US Core profile"/>
+	      <!-- <exampleCanonical value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"/>  -->
+      </resource>	  
+      	  <resource>
+	      <reference>
+	        <reference value="MedicationRequest/specialty-rx-medicationrequest-1"/>
+                <display value="Specialty Rx MedicationRequest 1"/>
+            </reference>
+            <name value="Specialty Rx MedicationRequest 1"/>
+            <description value="An example MedicationRequest illustrating required elements in the Specialty Medication Prescribing profile"/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-medicationrequest"/>
+      </resource>	  
+	<resource>
+	      <reference>
+	        <reference value="Observation/specialty-rx-observation-lab-1"/>
+                <display value="US Core Observation - Lab 1"/>
+            </reference>
+            <name value="US Core Observation - Lab 1"/>
+            <description value="An example Observation illustrating a lab observation using the US Core profile"/>
+	      <!-- <exampleCanonical value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"/> -->
+      </resource>	  
+	<resource>
+	      <reference>
+	        <reference value="Organization/specialty-rx-organization-payer-1"/>
+                <display value="Specialty Rx Organization - Payer 1"/>
+            </reference>
+            <name value="Specialty Rx Organization - Payer 1"/>
+            <description value="An example Organization illustrating a payor organization in the Specialty Medication Prescribing profile"/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-organization-payer"/>
+      </resource>	  
+		<resource>
+	      <reference>
+	        <reference value="Organization/specialty-rx-organization-pharmacy-1"/>
+                <display value="Specialty Rx Organization - Pharmacy 1"/>
+            </reference>
+            <name value="Specialty Rx Organization - Pharmacy 1"/>
+            <description value="Example Organization resource representing a pharmacy"/>
+			<exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-organization-pharmacy"/>
+      </resource>	       
+		<resource>
+	      <reference>
+	        <reference value="Organization/specialty-rx-organization-pharmacy-2-unknown-telecom"/>
+                <display value="Specialty Rx Organization - Pharmacy 2 - Telecom Value is Unknown"/>
+            </reference>
+            <name value="Specialty Rx Organization - Pharmacy 2 - Unknown Telecom"/>
+            <description value="Example Organization resource representing a pharmacy - where telecom is unknown"/>
+			<exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-organization-pharmacy"/>
+      </resource>	       
+	<resource>
+	      <reference>
+	        <reference value="Organization/specialty-rx-organization-provider-1"/>
+                <display value="Specialty Rx Organization - Provider 1"/>
+            </reference>
+            <name value="Specialty Rx Organization - Provider 1"/>
+            <description value="An example Organization illustrating a provider organization in the Specialty Medication Prescribing profile"/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-organization-provider"/>
+      </resource>	  
+	  	  <resource>
+	      <reference>
+	        <reference value="Patient/specialty-rx-patient-1"/>
+                <display value="Specialty Rx Patient 1"/>
+            </reference>
+            <name value="Specialty Rx Patient 1"/>
+            <description value="An example Patient illustrating required elements in the Specialty Medication Prescribing profile"/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-patient"/>
+      </resource>
+	  <resource>
+	      <reference>
+	        <reference value="Practitioner/specialty-rx-practitioner-1"/>
+                <display value="Specialty Rx Practitioner 1"/>
+            </reference>
+            <name value="Specialty Rx Practitioner 1"/>
+            <description value="An example Practitioner illustrating required elements in the Specialty Medication Prescribing profile"/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-practitioner"/>
+      </resource>	  
+	<resource>
+	      <reference>
+	        <reference value="PractitionerRole/specialty-rx-practitionerrole-1"/>
+                <display value="Specialty Rx PractitionerRole 1"/>
+            </reference>
+            <name value="Specialty Rx PractitionerRole 1"/>
+            <description value="An example PractitionerRole illustrating a practitioner's office (PractitionerRole) in the Specialty Medication Prescribing profile"/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-practitionerrole"/>
+      </resource>	  
+		<resource>
+	      <reference>
+	        <reference value="Bundle/specialty-rx-query-1"/>
+                <display value="specialty-rx-query-1"/>
+            </reference>
+            <name value="Specialty Rx Query 1"/>
+            <description value="Example data query message"/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-bundle-query"/>
+      </resource>	  
+	<resource>
+	      <reference>
+	        <reference value="Bundle/specialty-rx-query-response-1"/>
+                <display value="specialty-rx-query-response-1"/>
+            </reference>
+            <name value="Specialty Rx Query Response 1"/>
+            <description value="Example data query response message (single search)."/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-bundle-query-response"/>
+      </resource>	  
+	<resource>
+	      <reference>
+	        <reference value="Bundle/specialty-rx-query-response-2"/>
+                <display value="specialty-rx-query-response-2"/>
+            </reference>
+            <name value="Specialty Rx Query Response 2"/>
+            <description value="Example data query response message (multiple searches)."/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-bundle-query-response"/>
+      </resource>	  
+	<resource>
+	      <reference>
+	        <reference value="Bundle/specialty-rx-query-response-3-w-op-outcome"/>
+                <display value="specialty-rx-query-response-3-w-op-outcome"/>
+            </reference>
+            <name value="Specialty Rx Query Response 3 with operation outcome"/>
+            <description value="Example data query response message containing an error."/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-bundle-query-response"/>
+	      <exampleBoolean value="true"/>
+      </resource>	  
+	<resource>
+	      <reference>
+	        <reference value="Bundle/specialty-rx-query-response-unsolicited-1"/>
+                <display value="specialty-rx-query-response-unsolicited-1"/>
+            </reference>
+            <name value="Specialty Rx Query Response - Unsolicited 1"/>
+            <description value="Example unsolicited query response message."/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-bundle-query-response-unsolicited"/>
+      </resource>	  
+<!--      
+		<resource>
+	      <reference>
+	        <reference value="Bundle/specialty-rx-questionnaire-1"/>
+                <display value="specialty-rx-questionnaire-1"/>
+            </reference>
+            <name value="Specialty Rx Questionnaire 1"/>
+            <description value="Example questionnaire message"/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-bundle-questionnaire"/>
+      </resource>	  
+	<resource>
+	      <reference>
+	        <reference value="Bundle/specialty-rx-questionnaire-response-1"/>
+                <display value="specialty-rx-questionnaire-response-1"/>
+            </reference>
+            <name value="Specialty Rx Questionnaire Response 1"/>
+            <description value="Example data questionnaire response message."/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-bundle-questionnaire-response"/>
+      </resource>	  
+-->	
+	<resource>
+	      <reference>
+	        <reference value="RelatedPerson/specialty-rx-relatedperson-1"/>
+                <display value="Specialty Rx RelatedPerson 1"/>
+            </reference>
+            <name value="Specialty Rx RelatedPerson 1"/>
+            <description value="An example RelatedPerson illustrating a related person (wife) in the Specialty Medication Prescribing profile"/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-relatedperson"/>
+      </resource>	  
+	<resource>
+	      <reference>
+	        <reference value="Task/specialty-rx-task-smart-launch-1"/>
+                <display value="Specialty Rx Task - SMART Launch 1"/>
+            </reference>
+            <name value="Specialty Rx Task - SMART Launch 1"/>
+            <description value="Example of a Task that directs the user to launch a specified SMART app to complete a questionnaire"/>
+	      <exampleCanonical value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-task-smart-launch"/>
+      </resource>	  
+
+<!-- ************************************************************* Pages ************************************************************ -->
+      <page>
+	      <nameUrl value="toc.html"/>
+	      <title value="Table of Contents"/>
+	      <generation value="html"/>
+		  <page>
+		    <nameUrl value="index.html"/>
+		    <title value="IG Home Page"/>
+	        <generation value="markdown"/>
+		  </page>
+		  <page>
+		    <nameUrl value="roles.html"/>
+		    <title value="Roles"/>
+	        <generation value="markdown"/>
+		  </page>
+		  <page>
+		    <nameUrl value="systematic-queries.html"/>
+		    <title value="Systematic Query Workflows"/>
+	        <generation value="markdown"/>
+		  </page>
+		  <page>
+		    <nameUrl value="human-interaction.html"/>
+		    <title value="Information Flows Requiring Human Interaction"/>
+	        <generation value="markdown"/>
+		  </page>
+		  <page>
+		    <nameUrl value="message-structure.html"/>
+		    <title value="Message Structures"/>
+	        <generation value="markdown"/>
+		  </page>
+		  <page>
+		    <nameUrl value="patient-matching.html"/>
+		    <title value="Patient Matching"/>
+	        <generation value="markdown"/>
+		  </page>
+		  <page>
+		    <nameUrl value="request-queries.html"/>
+		    <title value="Search Conventions"/>
+	        <generation value="markdown"/>
+		  </page>
+		  <page>
+		    <nameUrl value="missing-data.html"/>
+		    <title value="Handling Missing Data"/>
+	        <generation value="markdown"/>
+		  </page>
+		  <page>
+		    <nameUrl value="us-core-profiles.html"/>
+		    <title value="US Core Profiles"/>
+	        <generation value="markdown"/>
+		  </page>
+		  <page>
+		    <nameUrl value="downloads.html"/>
+		    <title value="Downloads"/>
+		    <generation value="html"/>
+		  </page>
+		  <page>
+		    <nameUrl value="message-submission.html"/>
+		    <title value="Message submission"/>
+		    <generation value="markdown"/>
+		  </page>	
+		  <page>
+		    <nameUrl value="error-handling.html"/>
+		    <title value="Error handling"/>
+		    <generation value="markdown"/>
+		  </page>	
+		  <page>
+		    <nameUrl value="intermediary.html"/>
+		    <title value="Intermediary Facilitation"/>
+		    <generation value="markdown"/>
+		  </page>	
+		  <page>
+		    <nameUrl value="security.html"/>
+		    <title value="Security"/>
+		    <generation value="markdown"/>
+		  </page>	
+        </page>
+    	<parameter>
+	    <code value="copyrightyear"/>
+	    <value value="2020+"/>
+	  </parameter>
+	  <parameter>
+	    <code value="releaselabel"/>
+	    <value value="CI Build"/>
+	  </parameter>
+	</definition>
+</ImplementationGuide>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id value="specialty-rx-patient" />
+  <meta>
+    <lastUpdated value="2020-07-23T00:00:00+00:00" />
+  </meta>
+  <text>
+    <status value="additional" />
+    <div xmlns="http://www.w3.org/1999/xhtml">This profile tailors the Patient resource for carrying the patient information needed to support specialty medication dispensing and enrollment in related programs.         </div>
+  </text>
+  <url value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-patient" />
+  <version value="0.1.00" />
+  <name value="SpecialtyRxPatient" />
+  <title value="Specialty Rx Patient" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-03-20" />
+  <publisher value="NCPDP" />
+  <description value="This profile tailors the Patient resource for carrying the patient information needed to support specialty medication dispensing and enrollment in related programs." />
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166" />
+      <code value="US" />
+      <display value="United States of America" />
+    </coding>
+  </jurisdiction>
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Patient" />
+  <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Patient">
+      <path value="Patient" />
+    </element>
+    <element id="Patient.meta">
+      <path value="Patient.meta" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Patient.meta.source">
+      <path value="Patient.meta.source" />
+      <comment value="Holds the URL of the server that provided this Patient resource. For example, if provided by an EHR, this is the EHR's FHIR server URL"/> 
+      <mustSupport value="true" />
+    </element>
+    <element id="Patient.name.family">
+      <path value="Patient.name.family" />
+      <min value="1" />
+    </element>
+    <element id="Patient.name.given">
+      <path value="Patient.name.given" />
+      <min value="1" />
+    </element>
+    <element id="Patient.telecom">
+      <path value="Patient.telecom" />
+      <min value="1" />
+    </element>
+    <element id="Patient.birthDate">
+      <path value="Patient.birthDate" />
+      <min value="1" />
+    </element>
+    <element id="Patient.address">
+      <path value="Patient.address" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Patient.address.line">
+      <path value="Patient.address.line" />
+      <min value="1" />
+    </element>
+    <element id="Patient.address.city">
+      <path value="Patient.address.city" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Patient.address.state">
+      <path value="Patient.address.state" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Patient.address.postalCode">
+      <path value="Patient.address.postalCode" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+  </differential>
+</StructureDefinition>
