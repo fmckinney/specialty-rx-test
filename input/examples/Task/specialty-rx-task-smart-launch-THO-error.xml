@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <id value="specialty-rx-task-smart-launch-1" />
+  <id value="specialty-rx-task-smart-launch-THO-error" />
   <meta>
-    <profile value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-task-smart-launch" />
+    <profile value="http://hl7.org/fhir/us/specialty-rx/StructureDefinition/specialty-rx-task-smart-launch-THO" />
   </meta>
   <identifier>
     <value value="launch-context-id-01345005" />
@@ -11,12 +11,12 @@
   <intent value="plan" />
   <code>
     <coding>
-      <system value="http://hl7.org/fhir/us/specialty-rx/CodeSystem/specialty-rx-task-type" />
-      <code value="complete-app-questionnaire" />
-      <display value="Complete Questionnaire in SMART App" />
+      <system value="http://terminology.hl7.org/CodeSystem/task-type" />
+      <code value="go-out-for-drinks" />
+      <display value="Go Out for Drinks (not a value in the value set)" />
     </coding>
   </code>
-  <description value="Launch the My Pharmacy SMART app and complete the questionnaire." />
+  <description value="Launch the My Pharmacy SMART app and complete the questionnaire. This contains an invalid task-type value" />
   <focus>
     <identifier>
       <value value="prescription-70222056" />
@@ -38,7 +38,7 @@
   <input>
     <type>
       <coding>
-        <system value="http://hl7.org/fhir/us/specialty-rx/CodeSystem/specialty-rx-task-input-type" />
+        <system value="http://terminology.hl7.org/CodeSystem/task-input-type" />
         <code value="smart-app-launch-url" />
         <display value="SMART Application Launch URL" />
       </coding>
